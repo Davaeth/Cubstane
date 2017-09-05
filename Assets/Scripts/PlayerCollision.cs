@@ -18,7 +18,6 @@ public class PlayerCollision : MonoBehaviour {
             Instantiate(jebut, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
             FindObjectOfType<GameManager>().EndGame();
-
         }
 	}
 }

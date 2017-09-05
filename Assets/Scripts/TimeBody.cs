@@ -5,6 +5,7 @@ using UnityEngine;
 public class TimeBody : MonoBehaviour {
 
     public bool isRewinding = false;
+    public bool powerEarned = false;
 
     public float recordTime = 0.8f;
 
@@ -19,10 +20,20 @@ public class TimeBody : MonoBehaviour {
 	
     //If you put down your LeftCTRL button you will start rewind time. Else if you put it up the rewind will be stopped.
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+
+        if (Input.GetKeyDown(KeyCode.LeftControl) && powerEarned == true)
             StartRewind();
-        if (Input.GetKeyUp(KeyCode.LeftControl))
+        if (Input.GetKeyUp(KeyCode.LeftControl) && powerEarned == true)
             StopRewind();
+    }
+
+    void OnCollisionEnter(Collision collisionInfo)
+    {
+        if (collisionInfo.collider.tag == "Badge") //But you will be able to use this power only after obtained a special badge;
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Badge"));
+            powerEarned = true;
+        }
     }
 
     public void FixedUpdate()
@@ -67,6 +78,7 @@ public class TimeBody : MonoBehaviour {
     {
         isRewinding = false;
         rb.isKinematic = false;
+        powerEarned = false; //Thanks to this bool player can use the RewindTime power only once;
     }
 
 }
