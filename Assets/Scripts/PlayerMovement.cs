@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour {
             SceneManager.LoadScene("Menu");
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) //This line says that if you hold Sifht you will be able to "sprint";
         {
             forwardforce = 10000f;
             jumpForce = 90000;
