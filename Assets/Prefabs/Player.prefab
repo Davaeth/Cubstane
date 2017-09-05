@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54759287788231264}
   - component: {fileID: 114126576110052798}
   - component: {fileID: 114400922729824524}
+  - component: {fileID: 114689076110693570}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -125,6 +126,7 @@ MonoBehaviour:
   rb: {fileID: 54759287788231264}
   forwardforce: 6000
   sidewaysForce: 120
+  jumpForce: 75000
   isOnGround: 1
   jebut: {fileID: 1497868925489594, guid: 61d8eb89fbf7e7d4c92eb5beed89d224, type: 2}
 --- !u!114 &114400922729824524
@@ -141,3 +143,15 @@ MonoBehaviour:
   movement: {fileID: 114126576110052798}
   game: {fileID: 114048657160172464, guid: 75fc99499e7bd9c4c91615b8be51c97c, type: 2}
   jebut: {fileID: 1497868925489594, guid: 61d8eb89fbf7e7d4c92eb5beed89d224, type: 2}
+--- !u!114 &114689076110693570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085815747981518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df82ee00f0e2e84892affe41f11a094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRewinding: 0
