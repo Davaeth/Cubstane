@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject completelevelUI;
 
-    bool isGameOver = false;
+    public bool isGameOver = false;
 
     public void CompleteLevel()
     {

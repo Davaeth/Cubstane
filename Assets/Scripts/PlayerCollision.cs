@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class PlayerCollision : MonoBehaviour {
 
