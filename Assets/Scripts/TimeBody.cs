@@ -29,7 +29,7 @@ public class TimeBody : MonoBehaviour {
 
     void OnCollisionEnter(Collision collisionInfo)
     {
-        if (collisionInfo.collider.tag == "Badge") //But you will be able to use this power only after obtained a special badge;
+        if (collisionInfo.collider.tag == "Badge") //But you will be able to use this power only after obtained a special blue badge;
         {
             Destroy(GameObject.FindGameObjectWithTag("Badge"));
             powerEarned = true;

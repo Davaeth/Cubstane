@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpForce = 75000;
 
     public bool isOnGround = true;
+    public bool powerEarned = false;
     public GameObject jebut;
 
     void FixedUpdate() {
@@ -44,9 +45,9 @@ public class PlayerMovement : MonoBehaviour {
             SceneManager.LoadScene("Menu");
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) //This line says that if you hold Sifht you will be able to "sprint";
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ) && powerEarned == true ) //This line says that if you hold Sifht you will be able to "sprint";
         {
-            forwardforce = 10000f;
+            forwardforce = 20000f;
             jumpForce = 90000;
         }
         else {
@@ -61,6 +62,12 @@ public class PlayerMovement : MonoBehaviour {
         if (collisionInfo.collider.tag == "Ground")
         {
             isOnGround = true;
+        }
+
+        if (collisionInfo.collider.tag == "Sprint") //But you will be able to use this power only after obtained a special yellow badge;
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Sprint"));
+            powerEarned = true;
         }
     }
 }
