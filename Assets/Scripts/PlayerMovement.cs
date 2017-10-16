@@ -5,9 +5,9 @@ public class PlayerMovement : MonoBehaviour {
 
     public Rigidbody rb;
 
-    public float forwardforce = 6000f;
-    public float sidewaysForce = 20f;
-    public float jumpForce = 75000;
+    public float forwardforce = 6000f; // force about moving forward (player can not to "stop")
+    public float sidewaysForce = 20f; // force about moving left and right
+    public float jumpForce = 75000; // force about jumping
 
     public bool isOnGround = true;
     public bool powerEarned = false;
@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate() {
 
+        // Moving declarations
         rb.AddForce(0, 0, forwardforce * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.D))
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour {
             isOnGround = false;
         }
 
+        //Statement about dying
         if(rb.position.y < -1f)
         {
             Instantiate(jebut, gameObject.transform.position, gameObject.transform.rotation);
@@ -40,6 +42,7 @@ public class PlayerMovement : MonoBehaviour {
             FindObjectOfType<GameManager>().EndGame();
         }
 
+        // Statements which allows to use "special events"
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("Menu");
@@ -47,7 +50,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ) && powerEarned == true ) //This line says that if you hold Sifht you will be able to "sprint";
         {
-            forwardforce = 20000f;
+            forwardforce = 15000f;
             jumpForce = 90000;
         }
         else {
@@ -64,7 +67,7 @@ public class PlayerMovement : MonoBehaviour {
             isOnGround = true;
         }
 
-        if (collisionInfo.collider.tag == "Sprint") //But you will be able to use this power only after obtained a special yellow badge;
+        if (collisionInfo.collider.tag == "Sprint") //PLayer will be able to "sprint" when he obtained a yellow cube
         {
             Destroy(GameObject.FindGameObjectWithTag("Sprint"));
             powerEarned = true;
