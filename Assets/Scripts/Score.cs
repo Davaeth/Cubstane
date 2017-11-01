@@ -7,29 +7,29 @@ public class Score : MonoBehaviour {
     public Text score;
 
     public PlayerCollision stop;
-    public float HighScore;
-    public float LastScore;
-    public float FirstStep;
+    //public float HighScore;
+    //public float LastScore;
+    //public float FirstStep;
 
     GameObject Player;
 
-    void Start(){
+    /*void Start(){
         
         FirstStep = Player.transform.position.x;
 
-    }
+    }*/
 
     // Update is called once per frame
     void Update () {
 
         Player = GameObject.FindGameObjectWithTag("Player");
 
-        if (stop.isGameOver == false)
+        /*if (stop.isGameOver == false)
         {          
             LastScore = Player.transform.position.x;
             HighScore = LastScore = FirstStep;
-        }
+        }*/
 
-        score.text = HighScore.ToString();
+        //score.text = HighScore.ToString();
     }
 }
