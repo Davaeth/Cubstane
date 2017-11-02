@@ -69,7 +69,6 @@ public class PlayerMovement : MonoBehaviour {
 
         if (collisionInfo.collider.tag == "Sprint") //PLayer will be able to "sprint" when he obtained a yellow cube
         {
-            Destroy(GameObject.FindGameObjectWithTag("Sprint"));
             powerEarned = true;
         }
     }
