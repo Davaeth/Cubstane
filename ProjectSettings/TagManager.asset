@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Badge
   - Sprint
+  - Support
   layers:
   - Default
   - TransparentFX

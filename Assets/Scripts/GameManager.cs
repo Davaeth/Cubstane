@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
 
-
         if (isGameOver == false)
         {
             isGameOver = true;

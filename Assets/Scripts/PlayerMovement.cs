@@ -6,10 +6,10 @@ public class PlayerMovement : MonoBehaviour {
     public Rigidbody rb;
 
     public float forwardforce = 6000f; // force about moving forward (player can not to "stop")
-    public float sidewaysForce = 20f; // force about moving left and right
+    private float sidewaysForce = 50f; // force about moving left and right
     public float jumpForce = 75000; // force about jumping
 
-    public bool isOnGround = true;
+    private bool isOnGround = true;
     public bool powerEarned = false;
     public GameObject jebut;
 
@@ -18,17 +18,17 @@ public class PlayerMovement : MonoBehaviour {
         // Moving declarations
         rb.AddForce(0, 0, forwardforce * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) ) && isOnGround)
         {
             rb.AddForce(0, jumpForce * Time.deltaTime, 0);
             isOnGround = false;
@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             forwardforce = 15000f;
             jumpForce = 90000;
+            sidewaysForce = 100f;
         }
         else {
             forwardforce = 6000f;
