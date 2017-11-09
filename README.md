@@ -1,2 +1,3 @@
 # Cubstane
-First Game. Trying to make with Brackeys tutrials.
+First Game. First making with Brackeys tutorials.
+Now my main project to learn new things. Still improving.
