@@ -7,10 +7,11 @@ public class Options : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
         {
-            SceneManager.LoadScene("Menu");
+            Return();
         }
     }
 
+#region Graphics settings
     public void Low()
     {
         QualitySettings.SetQualityLevel(0);
@@ -25,10 +26,10 @@ public class Options : MonoBehaviour {
     {
         QualitySettings.SetQualityLevel(2);
     }
+#endregion
 
     public void Return()
     {
-        SceneManager.LoadScene("Menu");
+        GameManager.LoadMenu();
     }
-
 }

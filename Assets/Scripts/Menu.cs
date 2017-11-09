@@ -7,28 +7,26 @@ public class Menu : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            GameManager.StartGame();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            GameManager.QuitGame();
         }
     }
 
-    public void StartGame ()
+    public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        GameManager.StartGame();
     }
-
     public void Quit()
     {
-        Application.Quit();
+        GameManager.QuitGame();
     }
 
     public void Options()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameManager.GameOptions();
     }
-
 }

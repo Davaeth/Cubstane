@@ -1,30 +1,45 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public static class GameManager
 {
-    public GameObject completelevelUI;
 
-    public bool isGameOver = false;
-
-    public void CompleteLevel()
+    public static void LoadLevel(int? levelIndex = null)
     {
-        completelevelUI.SetActive(true);
+        SceneManager.LoadScene(levelIndex ?? SceneManager.GetActiveScene().buildIndex + 1);
+        hp = 3;
+        Debug.Log(hp);
+    }
+    private static int hp = 3;
+
+    public static int GetHp() { return hp; }
+
+    public static void PlayerDeath()
+    {
+        hp = hp - 1;
     }
 
-    public void EndGame()
+    public static void StartGame()
     {
-
-        if (isGameOver == false)
-        {
-            isGameOver = true;
-            Invoke("Restart", 1f);
-        }
+        LoadLevel((int)MenuItem.StartGame);
     }
-
-    void Restart()
+    public static void QuitGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Application.Quit();
     }
+    public static void GameOptions()
+    {
+        SceneManager.LoadScene((int)MenuItem.Options);
+    }
+    public static void LoadMenu()
+    {
+        SceneManager.LoadScene((int)MenuItem.Menu);
+    }
+}
 
+public enum MenuItem : int
+{
+    Menu = 0,
+    Options = 1,
+    StartGame = 2
 }

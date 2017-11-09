@@ -125,10 +125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 54759287788231264}
   forwardforce: 6000
-  sidewaysForce: 120
   jumpForce: 75000
-  isOnGround: 1
-  jebut: {fileID: 1497868925489594, guid: 61d8eb89fbf7e7d4c92eb5beed89d224, type: 2}
+  powerEarned: 0
+  death: {fileID: 1497868925489594, guid: 61d8eb89fbf7e7d4c92eb5beed89d224, type: 2}
 --- !u!114 &114400922729824524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 114126576110052798}
   game: {fileID: 114048657160172464, guid: 75fc99499e7bd9c4c91615b8be51c97c, type: 2}
-  jebut: {fileID: 1497868925489594, guid: 61d8eb89fbf7e7d4c92eb5beed89d224, type: 2}
+  death: {fileID: 1497868925489594, guid: 61d8eb89fbf7e7d4c92eb5beed89d224, type: 2}
 --- !u!114 &114689076110693570
 MonoBehaviour:
   m_ObjectHideFlags: 1

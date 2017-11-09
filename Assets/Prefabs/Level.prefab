@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4340662636938552}
   - component: {fileID: 114048657160172464}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,4 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb95f5ddd1ee7d64982e55a6d0410f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  completelevelUI: {fileID: 0}
+  completelevelUI: {fileID: 1822957110383456, guid: 5ec95768ae0c78c4e93fb3ef67696450,
+    type: 2}
+  gameOverUI: {fileID: 1391610901834376, guid: 9a77dcc12c4973c4c904fdfc0df443c8, type: 2}
+  isGameOver: 0

@@ -2,10 +2,16 @@
 
 public class EndTrigger : MonoBehaviour {
 
-    public GameManager end;
+    public Level end;
 
     void OnTriggerEnter()
     {
         end.CompleteLevel();
+        Invoke("LoadNextLevel", 1.7f);
+    }
+
+    void LoadNextLevel()
+    {
+        GameManager.LoadLevel();
     }
 }

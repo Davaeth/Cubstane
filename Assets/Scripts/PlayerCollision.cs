@@ -4,9 +4,9 @@ using UnityEngine.Animations;
 public class PlayerCollision : MonoBehaviour {
 
     public PlayerMovement movement;
-    public GameManager game;
+    public Level game;
 
-    public GameObject jebut;
+    public GameObject death;
 
     void OnCollisionEnter (Collision collisionInfo)
     {
@@ -14,9 +14,9 @@ public class PlayerCollision : MonoBehaviour {
         if (collisionInfo.collider.tag == "Obstacle")
         {
             movement.enabled = false;
-            Instantiate(jebut, gameObject.transform.position, gameObject.transform.rotation);
+            Instantiate(death, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
-            FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<Level>().EndGame();
         }
 	}
 }

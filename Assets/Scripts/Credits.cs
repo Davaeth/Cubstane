@@ -7,18 +7,18 @@ public class Credits : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            GameManager.QuitGame();
         }
     }
 
-    public void Quit ()
+    public void Quit()
     {
-        Application.Quit();
+        GameManager.QuitGame();
     }
 
     public void Restart ()
     {
-        SceneManager.LoadScene("Menu");
+        GameManager.LoadMenu();
     }
     
 }

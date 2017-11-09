@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool isOnGround = true;
     public bool powerEarned = false;
-    public GameObject jebut;
+    public GameObject death;
 
     void FixedUpdate() {
 
@@ -37,15 +37,15 @@ public class PlayerMovement : MonoBehaviour {
         //Statement about dying
         if(rb.position.y < -1f)
         {
-            Instantiate(jebut, gameObject.transform.position, gameObject.transform.rotation);
+            Instantiate(death, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
-            FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<Level>().EndGame();
         }
 
         // Statements which allows to use "special events"
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Menu");
+            GameManager.LoadMenu();
         }
 
         if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ) && powerEarned == true ) //This line says that if you hold Sifht you will be able to "sprint";
@@ -59,7 +59,6 @@ public class PlayerMovement : MonoBehaviour {
             jumpForce = 75000;
         }
     }
-
 
     void OnCollisionEnter(Collision collisionInfo)
     {
