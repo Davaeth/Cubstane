@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
     public Rigidbody rb;
 
@@ -13,7 +14,8 @@ public class PlayerMovement : MonoBehaviour {
     public bool powerEarned = false;
     public GameObject death;
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
 
         // Moving declarations
         rb.AddForce(0, 0, forwardforce * Time.deltaTime);
@@ -28,14 +30,22 @@ public class PlayerMovement : MonoBehaviour {
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) ) && isOnGround)
+        //TODO:  
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             rb.AddForce(0, jumpForce * Time.deltaTime, 0);
             isOnGround = false;
         }
 
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && isOnGround)
+        {
+            rb.AddForce(0, jumpForce * Time.deltaTime, 0);
+            isOnGround = false;
+        }
+
+
         //Statement about dying
-        if(rb.position.y < -1f)
+        if (rb.position.y < -1f)
         {
             Instantiate(death, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
@@ -48,13 +58,14 @@ public class PlayerMovement : MonoBehaviour {
             GameManager.LoadMenu();
         }
 
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ) && powerEarned == true ) //This line says that if you hold Sifht you will be able to "sprint";
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && powerEarned == true) //This line says that if you hold Sifht you will be able to "sprint";
         {
             forwardforce = 15000f;
             jumpForce = 90000;
             sidewaysForce = 100f;
         }
-        else {
+        else
+        {
             forwardforce = 6000f;
             jumpForce = 75000;
         }
