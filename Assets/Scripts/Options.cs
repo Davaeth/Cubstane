@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.PostProcessing;
 using UnityEngine.SceneManagement;
 
 public class Options : MonoBehaviour {
@@ -11,7 +12,7 @@ public class Options : MonoBehaviour {
         }
     }
 
-#region Graphics settings
+    #region Graphics settings
     public void Low()
     {
         QualitySettings.SetQualityLevel(0);
