@@ -3,12 +3,15 @@ using UnityEngine.SceneManagement;
 
 public static class GameManager
 {
-
+    public static void LoadLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+        hp = 3;
+    }
     public static void LoadLevel(int? levelIndex = null)
     {
         SceneManager.LoadScene(levelIndex ?? SceneManager.GetActiveScene().buildIndex + 1);
         hp = 3;
-        Debug.Log(hp);
     }
     private static int hp = 3;
 
@@ -31,6 +34,12 @@ public static class GameManager
     {
         SceneManager.LoadScene((int)MenuItem.Options);
     }
+
+    public static void SelectLevel()
+    {
+        SceneManager.LoadScene((int)MenuItem.SelectLevel);
+    }
+
     public static void LoadMenu()
     {
         SceneManager.LoadScene((int)MenuItem.Menu);
@@ -41,5 +50,6 @@ public enum MenuItem : int
 {
     Menu = 0,
     Options = 1,
-    StartGame = 2
+    SelectLevel = 2,
+    StartGame = 3
 }

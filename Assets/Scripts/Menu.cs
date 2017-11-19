@@ -29,4 +29,9 @@ public class Menu : MonoBehaviour {
     {
         GameManager.GameOptions();
     }
+
+    public void LevelSelector()
+    {
+        GameManager.SelectLevel();
+    }
 }

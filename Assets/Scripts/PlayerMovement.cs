@@ -3,16 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     public Rigidbody rb;
 
-    public float forwardforce = 6000f; // force about moving forward (player can not to "stop")
+    private float forwardforce = 6000f; // force about moving forward (player can not to "stop")
     private float sidewaysForce = 50f; // force about moving left and right
-    public float jumpForce = 75000; // force about jumping
+    private float jumpForce = 75000; // force about jumping
 
-    private bool isOnGround = true;
-    public bool powerEarned = false;
     public GameObject death;
+
+    private float jumpRange = 0.7f;
+
+    private float horizontal;
 
     void FixedUpdate()
     {
@@ -20,29 +21,12 @@ public class PlayerMovement : MonoBehaviour
         // Moving declarations
         rb.AddForce(0, 0, forwardforce * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-        }
+        horizontal = Input.GetAxis("Horizontal");
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-        }
+            rb.AddForce(horizontal * sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
-        //TODO:  
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
-        {
+        if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded())
             rb.AddForce(0, jumpForce * Time.deltaTime, 0);
-            isOnGround = false;
-        }
-
-        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && isOnGround)
-        {
-            rb.AddForce(0, jumpForce * Time.deltaTime, 0);
-            isOnGround = false;
-        }
-
 
         //Statement about dying
         if (rb.position.y < -1f)
@@ -58,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
             GameManager.LoadMenu();
         }
 
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && powerEarned == true) //This line says that if you hold Sifht you will be able to "sprint";
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && BadgeDeath.PowerEarned == true) //This line says that if you hold Sifht you will be able to "sprint";
         {
             forwardforce = 15000f;
             jumpForce = 90000;
@@ -71,16 +55,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collisionInfo)
+    private bool IsGrounded()
     {
-        if (collisionInfo.collider.tag == "Ground")
-        {
-            isOnGround = true;
-        }
-
-        if (collisionInfo.collider.tag == "Sprint") //PLayer will be able to "sprint" when he obtained a yellow cube
-        {
-            powerEarned = true;
-        }
+        return Physics.Raycast(gameObject.transform.position, Vector3.down, jumpRange);
     }
 }
