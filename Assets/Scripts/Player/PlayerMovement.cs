@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpForce = 75000f; // force about jumping
 
     public GameObject death;
+    private bool jump = false;
 
     private float jumpRange = 0.7f;
 
@@ -19,13 +20,17 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(horizontal * sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 
+        if (Input.GetKeyDown(KeyCode.Space))
+            jump = true;
+
         // Statements which allows to use "special events"
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             GameManager.LoadMenu();
         }
 
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && BadgeDeath.PowerEarned == true) //This line says that if you hold Sifht you will be able to "sprint";
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) 
+                    && BadgeDeath.PowerEarned == true) //This line says that if you hold Sifht you will be able to "sprint";
         {
             forwardforce = 15000f;
             jumpForce = 90000;
@@ -40,8 +45,11 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && IsGrounded())
+        if (jump && IsGrounded())
+        {
             rb.AddForce(0, jumpForce * Time.deltaTime, 0);
+            jump = false;
+        }
 
         // Moving declarations
         rb.AddForce(0, 0, forwardforce * Time.deltaTime);
