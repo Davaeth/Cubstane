@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/SelectLevel.unity
     guid: e6c79976e8c429f4291b4ea5678d1108
   - enabled: 1
+    path: Assets/Ship_Review.unity
+    guid: 328ddc19cfd4b7a4f98cc05e4b9d5c48
+  - enabled: 1
     path: Assets/Level01.unity
     guid: 4f1da728070e84e46a50f82351d8d76e
   - enabled: 1

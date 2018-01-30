@@ -2546,8 +2546,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1312109170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 265, y: 256, z: 0}
-  m_LocalScale: {x: 0.85333335, y: 0.85333335, z: 0.85333335}
+  m_LocalPosition: {x: 265, y: 297.5, z: 0}
+  m_LocalScale: {x: 0.9916667, y: 0.9916667, z: 0.9916667}
   m_Children:
   - {fileID: 394774120}
   - {fileID: 1985282539}
@@ -3704,6 +3704,12 @@ Prefab:
       propertyPath: m_AllowMSAA
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82290107997333270, guid: 22df18bed228d95489902e3e2f1ddf17,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: bec87dd991863774799afe918416abec,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22df18bed228d95489902e3e2f1ddf17, type: 2}
   m_IsPrefabParent: 0
