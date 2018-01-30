@@ -7,11 +7,13 @@ public static class GameManager
     {
         SceneManager.LoadScene(levelName);
         hp = 3;
+        Cursor.visible = false;
     }
     public static void LoadLevel(int? levelIndex = null)
     {
         SceneManager.LoadScene(levelIndex ?? SceneManager.GetActiveScene().buildIndex + 1);
         hp = 3;
+        Cursor.visible = false;
     }
     private static int hp = 3;
 
@@ -25,6 +27,7 @@ public static class GameManager
     public static void StartGame()
     {
         LoadLevel((int)MenuItem.StartGame);
+        Cursor.visible = false;
     }
     public static void QuitGame()
     {
@@ -38,16 +41,19 @@ public static class GameManager
     public static void SelectLevel()
     {
         SceneManager.LoadScene((int)MenuItem.SelectLevel);
+        Cursor.visible = false;
     }
 
     public static void LoadMenu()
     {
         SceneManager.LoadScene((int)MenuItem.Menu);
+        Cursor.visible = true;
     }
 
     public static void LoadShip()
     {
         SceneManager.LoadScene((int)MenuItem.ShipReview);
+        Cursor.visible = false;
     }
 }
 
