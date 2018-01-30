@@ -44,6 +44,11 @@ public static class GameManager
     {
         SceneManager.LoadScene((int)MenuItem.Menu);
     }
+
+    public static void LoadShip()
+    {
+        SceneManager.LoadScene((int)MenuItem.ShipReview);
+    }
 }
 
 public enum MenuItem : int
@@ -51,5 +56,7 @@ public enum MenuItem : int
     Menu = 0,
     Options = 1,
     SelectLevel = 2,
-    StartGame = 3
+    ShipReview = 3,
+    StartGame = 4
+
 }
