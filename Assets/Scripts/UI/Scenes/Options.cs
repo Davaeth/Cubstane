@@ -6,10 +6,20 @@ using UnityEngine.UI;
 
 public class Options : MonoBehaviour {
 
-
     public Dropdown quality;
+    public Slider volume;
 
-    public AudioMixer audioMixer;
+    public AudioMixer mixer;
+
+    private float volumeValue;
+
+    void Start()
+    {
+        quality.value = QualitySettings.GetQualityLevel();
+
+        mixer.GetFloat("Volume", out volumeValue);
+        volume.value = volumeValue;
+    }
 
     void Update()
     {
@@ -19,35 +29,19 @@ public class Options : MonoBehaviour {
         }
     }
 
-    #region Graphics settings
-    public void Low()
-    {
-        QualitySettings.SetQualityLevel(0);
-    }
-
-    public void Medium()
-    {
-        QualitySettings.SetQualityLevel(1);
-    }
-
-    public void Ultra()
-    {
-        QualitySettings.SetQualityLevel(2);
-    }
-#endregion
-
     public void Return()
     {
         GameManager.LoadMenu();
     }
 
-    public void SetVolume(float volume)
+    public void SetVolume(float _volume)
     {
-        audioMixer.SetFloat("Volume", volume);
+        mixer.SetFloat("Volume", _volume);
     }
 
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        quality.RefreshShownValue();
     }
 }

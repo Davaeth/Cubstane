@@ -41,7 +41,6 @@ public static class GameManager
     public static void SelectLevel()
     {
         SceneManager.LoadScene((int)MenuItem.SelectLevel);
-        Cursor.visible = false;
     }
 
     public static void LoadMenu()
