@@ -54,7 +54,7 @@ QualitySettings:
     softVegetation: 0
     realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 0
-    vSyncCount: 1
+    vSyncCount: 0
     lodBias: 0.7
     maximumLODLevel: 0
     particleRaycastBudget: 64
@@ -63,7 +63,7 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   - serializedVersion: 2
-    name: Ultra
+    name: High
     pixelLightCount: 10
     shadows: 2
     shadowResolution: 3
@@ -91,14 +91,14 @@ QualitySettings:
     resolutionScalingFixedDPIFactor: 1
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
-    Android: 1
+    Android: 0
     Nintendo 3DS: 2
     Nintendo Switch: 2
     PS4: 2
     PSM: 2
     PSP2: 1
     Samsung TV: 1
-    Standalone: 1
+    Standalone: 0
     Tizen: 1
     Web: 2
     WebGL: 1

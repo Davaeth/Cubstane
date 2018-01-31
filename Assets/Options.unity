@@ -903,7 +903,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quality: {fileID: 1559378563}
-  audioMixer: {fileID: 24100000, guid: bec87dd991863774799afe918416abec, type: 2}
+  volume: {fileID: 835999334}
+  mixer: {fileID: 24100000, guid: bec87dd991863774799afe918416abec, type: 2}
 --- !u!114 &784928614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -979,7 +980,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 835999332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.3999996, y: -106, z: 0}
+  m_LocalPosition: {x: 4.4000015, y: -106, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1657034491}
@@ -1626,7 +1627,7 @@ GameObject:
   - component: {fileID: 1559378564}
   - component: {fileID: 1559378563}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: Quality
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1639,7 +1640,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1559378561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.050007794, z: 0}
+  m_LocalPosition: {x: 0, y: -0.05000782, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 48610938}

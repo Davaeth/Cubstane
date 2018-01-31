@@ -17,6 +17,7 @@ public class PlayerCollision : MonoBehaviour {
             Instantiate(death, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
             FindObjectOfType<Level>().EndGame();
+            BadgeDeath.PowerEarned = false;
         }
 	}
 }

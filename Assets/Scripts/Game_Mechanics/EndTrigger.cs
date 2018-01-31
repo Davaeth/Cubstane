@@ -14,5 +14,6 @@ public class EndTrigger : MonoBehaviour {
     void LoadNextLevel()
     {
         GameManager.LoadLevel();
+        BadgeDeath.PowerEarned = false;
     }
 }

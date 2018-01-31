@@ -35,10 +35,13 @@ public class Level : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        BadgeDeath.PowerEarned = false;
     }
 
     void LoadMenu()
     {
         GameManager.LoadMenu();
+        BadgeDeath.PowerEarned = false;
+
     }
 }
